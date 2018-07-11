@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
                 login(username, password);
             }
         });
+
+        signUp.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void login(String username, String password){

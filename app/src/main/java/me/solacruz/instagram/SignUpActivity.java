@@ -1,9 +1,16 @@
 package me.solacruz.instagram;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -23,5 +30,49 @@ public class SignUpActivity extends AppCompatActivity {
         newPassword=findViewById(R.id.evInputPassword);
         createAccount=findViewById(R.id.bvCreateAccount);
         returnToLogIn=findViewById(R.id.bvReturnToLogIn);
+
+        createAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String username=newUsername.getText().toString();
+                final String email=newEmail.getText().toString();
+                final String password=newPassword.getText().toString();
+
+                signUp(username, email, password);
+            }
+        });
+
+        returnToLogIn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    private void signUp(String username, String email, String password){
+        ParseUser user = new ParseUser();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    Log.d("SignUpActivity", "Signed Up Successfully!");
+
+                    Intent intent= new Intent(SignUpActivity.this, HomeActivity.class);
+                    startActivity(intent);
+
+                    finish();
+                } else {
+                    Log.e("SignUpActivity", "Sign Up Failed");
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 }
