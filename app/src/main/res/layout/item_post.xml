@@ -12,7 +12,11 @@
         android:layout_height="50dp"
         app:srcCompat="@android:color/holo_blue_light"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <TextView
         android:id="@+id/tvUsername"
@@ -20,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginTop="5dp"/>
 
     <ImageView
         android:id="@+id/ivUserImage"
@@ -30,38 +35,53 @@
         android:layout_below="@+id/ivProfileImage"
         app:srcCompat="@android:color/black" />
 
-    <Button
-        android:id="@+id/ibvLike"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/ivLike"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/ivUserImage" />
-
-    <Button
-        android:id="@+id/ibvComment"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/ivUserImage"
-        android:layout_toEndOf="@+id/ibvLike" />
+        app:srcCompat="@drawable/ufi_heart"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="3dp"/>
 
-    <Button
-        android:id="@+id/ibvShare"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/ivComment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/ivUserImage"
-        android:layout_toEndOf="@+id/ibvComment" />
+        android:layout_toEndOf="@+id/ivLike"
+        app:srcCompat="@drawable/ufi_comment"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="3dp"/>
 
-    <Button
-        android:id="@+id/ibvSave"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/ivShare"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/ivUserImage"
+        android:layout_toEndOf="@+id/ivComment"
+        app:srcCompat="@drawable/ufi_new_direct"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="1dp"/>
+
+    <ImageView
+        android:id="@+id/ivSave"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/ivUserImage" />
+        android:layout_below="@+id/ivUserImage"
+        app:srcCompat="@drawable/ufi_save"
+        android:layout_marginTop="5dp"/>
+
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ibvLike"
-        android:text="TextView" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivLike"
+        android:text="TextView"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
 </RelativeLayout>
