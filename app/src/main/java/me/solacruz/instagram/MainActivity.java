@@ -30,6 +30,17 @@ public class MainActivity extends AppCompatActivity {
         logIn=findViewById(R.id.bvLogIn);
         signUp=findViewById(R.id.bvSignUp);
 
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            final String username = usernameIn.getText().toString();
+            final String password = passwordIn.getText().toString();
+            login(username, password);
+        }
+
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
