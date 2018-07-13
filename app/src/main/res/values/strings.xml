@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Instagram</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="home">Home</string>
+    <string name="post">Make a Post</string>
+    <string name="profile">My Profile</string>
 </resources>
