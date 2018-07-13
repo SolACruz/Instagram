@@ -34,9 +34,13 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         rvPosts = findViewById(R.id.rvPost);
         posts=new ArrayList<>();
         postAdapter= new PostAdapter(posts);
+
+        rvPosts.setLayoutManager(new LinearLayoutManager(this));
+        rvPosts.setAdapter(postAdapter);
 
         loadTopPosts();
 
@@ -50,8 +54,10 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void done(List<Post> objects, ParseException e) {
                 if(e==null){
+                    Post post;
                     for(int i=0; i<objects.size(); i++){
-                        posts.add(objects.get(i));
+                        post= objects.get(i);
+                        posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);
                         Log.d("HomeActivity", "Post [" +i + "]="
                                 +objects.get(i).getDescription()

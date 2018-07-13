@@ -65,7 +65,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         Post post=mPost.get(position);
 
         //give the views the data in the correct order/populate the views
-        holder.tvUsername.setText(post.getUser().toString());
+        holder.tvUsername.setText(post.getUser().getUsername());
         holder.tvDescription.setText(post.getDescription());
         //holder.tvRelDate.setText(getRelativeTimeAgo(tweet.createdAt));
 
