@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -69,7 +71,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         holder.tvDescription.setText(post.getDescription());
         //holder.tvRelDate.setText(getRelativeTimeAgo(tweet.createdAt));
 
-        //Glide.with(context).load(tweet.user.profileImageURL).into(holder.ivProfileImage);
+        Glide.with(context).load(post.getImage().getUrl()).into(holder.ivUserImage);
     }
 
     @Override
